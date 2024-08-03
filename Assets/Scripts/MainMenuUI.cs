@@ -10,7 +10,7 @@ public class MainMenuUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //EnableMainMenu(true);
     }
 
     // Update is called once per frame
@@ -19,10 +19,25 @@ public class MainMenuUI : MonoBehaviour
         
     }
 
+    public bool MainMenuEnabled()
+    {
+        return mainMenuCanvas.gameObject.activeSelf;
+    }
+
+    public void EnableMainMenu(bool enable)
+    {
+		gameManager.PauseGame(enable);
+		mainMenuCanvas.gameObject.SetActive(enable);
+        if (enable == true)
+        {
+			Gval.ChangeGameState(Gval.GameState.MainMenu);
+		}
+	}
+
     public void StartLevel()
     {
-        gameManager.PauseGame(false);
-        mainMenuCanvas.gameObject.SetActive(false);
+        EnableMainMenu(false);
+        gameManager.StartLevel(1); // TODO get level 
     }
 
 }
