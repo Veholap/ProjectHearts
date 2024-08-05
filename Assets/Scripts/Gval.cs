@@ -31,6 +31,19 @@ public static class Gval
 		None = 0,
 		HP,
 		DMG,
+		RANGE,
+		ASPEED, // attack speed
+		MSPEED, // movement speed
+
+		Count
+	}
+
+	public enum CharacterType
+	{
+		None = 0,
+		HERO,
+		ENEMY,
+		BASE,
 
 		Count
 	}

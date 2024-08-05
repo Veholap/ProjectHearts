@@ -552,6 +552,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095d8e0a550a6904ab7c2427171b75b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  characterType: 0
+  target: {fileID: 0}
+  attackTimer: 0
+  isDefeated: 0
 --- !u!212 &459353699
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -791,6 +796,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095d8e0a550a6904ab7c2427171b75b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  characterType: 0
+  target: {fileID: 0}
+  attackTimer: 0
+  isDefeated: 0
 --- !u!1 &1233795173
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,7 +845,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbaceb28de8eeda459a8cddf9b17aabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heroBase: {fileID: 1274826978}
+  heroes:
+  - {fileID: 1158874241}
+  - {fileID: 1633517859}
+  - {fileID: 1421604112}
+  - {fileID: 459353698}
   enemyPrefab: {fileID: 1419323525182307134, guid: 31017024133552744be5e63fc0f14671, type: 3}
+  projectilePrefab: {fileID: 815149588613755672, guid: 342b6bb4952b46442909200668496d6c, type: 3}
   gamePaused: 1
 --- !u!1 &1274826975
 GameObject:
@@ -847,6 +864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274826976}
   - component: {fileID: 1274826977}
+  - component: {fileID: 1274826978}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -923,6 +941,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1274826978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274826975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32004a084cb0bb44b745c6b9dbdbb28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  characterType: 0
+  target: {fileID: 0}
+  attackTimer: 0
+  isDefeated: 0
 --- !u!1 &1278567178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,6 +1268,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095d8e0a550a6904ab7c2427171b75b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  characterType: 0
+  target: {fileID: 0}
+  attackTimer: 0
+  isDefeated: 0
 --- !u!212 &1421604113
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1407,6 +1447,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095d8e0a550a6904ab7c2427171b75b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  characterType: 0
+  target: {fileID: 0}
+  attackTimer: 0
+  isDefeated: 0
 --- !u!212 &1633517860
 SpriteRenderer:
   m_ObjectHideFlags: 0
