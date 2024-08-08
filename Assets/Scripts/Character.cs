@@ -126,10 +126,10 @@ public class Character : MonoBehaviour
 
     public void TakeDMG(Character dmgDealer)
     {
-        float currentHP = GetStat(Gval.StatType.HP).value;
+        float currentHP = GetStat(Gval.StatType.CurHP).value;
         float dmg = dmgDealer.GetStat(Gval.StatType.DMG).value;
         float newHP = currentHP - dmg;
-        SetStatValue(Gval.StatType.HP, newHP);
+        SetStatValue(Gval.StatType.CurHP, newHP);
         //Debug.Log(dmgDealer.gameObject.name + " deals " + dmg + " dmg to " + gameObject.name + " (" + newHP + ") hp left");
         if (newHP <= 0f)
         {
@@ -138,6 +138,16 @@ public class Character : MonoBehaviour
             {
                 Debug.Log("BASE DESTROYED");
             }
+			else if (characterType == Gval.CharacterType.ENEMY)
+			{
+                //Debug.Log("ENEMY DESTROYED");
+                GameManager.Instance.enemiesDefeated += 1;
+                Debug.Log("ENEMIES DEFEATED: " + GameManager.Instance.enemiesDefeated);
+			}
+			else if (characterType == Gval.CharacterType.HERO)
+			{
+				Debug.Log("HERO DESTROYED???");
+			}
 		}
     }
 

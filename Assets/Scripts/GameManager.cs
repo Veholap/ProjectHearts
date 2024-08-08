@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IDataPersistence
 {
     public static GameManager Instance;
 
@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 	public bool gamePaused = true;
     public int waveCount = 1;
 
+    public int enemiesDefeated = 0;
 	public List<Enemy> enemies = new List<Enemy>();
 
 	private void Awake()
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("TWO INSTANCES");
+            Debug.LogError("TWO GameManager INSTANCES");
         }
 	}
 
@@ -36,6 +37,16 @@ public class GameManager : MonoBehaviour
 		MainMenuUI mainMenu = FindAnyObjectByType<MainMenuUI>(FindObjectsInactive.Include);
         mainMenu.EnableMainMenu(true);
 	}
+
+    public void LoadData(GameData data)
+    {
+        enemiesDefeated = data.enemiesDefeated;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.enemiesDefeated = enemiesDefeated;
+    }
 
     // Update is called once per frame
     void Update()
@@ -62,8 +73,9 @@ public class GameManager : MonoBehaviour
 		}
 		heroBase.characterType = Gval.CharacterType.BASE;
 		heroBase.InitStats();
-		heroBase.SetStatValue(Gval.StatType.HP, 100f);
-        heroBase.SetStatValue(Gval.StatType.MSPEED, 2f);
+		heroBase.SetStatValue(Gval.StatType.CurHP, 100f);
+		heroBase.SetStatValue(Gval.StatType.MaxHP, 100f);
+		heroBase.SetStatValue(Gval.StatType.MSPEED, 2f);
 
 		Gval.ChangeGameState(Gval.GameState.GameOngoing);
         waveCount = 1;
@@ -81,8 +93,10 @@ public class GameManager : MonoBehaviour
             enemy.characterType = Gval.CharacterType.ENEMY;
 
             enemy.InitStats();
-            enemy.SetStatValue(Gval.StatType.RANGE, Random.Range(4f, 6f));
-			enemy.SetStatValue(Gval.StatType.HP, Random.Range(5f, 8f));
+            float enemyHP = Random.Range(4f, 6f);
+			enemy.SetStatValue(Gval.StatType.CurHP, enemyHP);
+			enemy.SetStatValue(Gval.StatType.MaxHP, enemyHP);
+			enemy.SetStatValue(Gval.StatType.RANGE, Random.Range(4f, 6f));
             enemy.SetStatValue(Gval.StatType.MSPEED, Random.Range(2f, 3f));
             enemies.Add(enemy);
 		}

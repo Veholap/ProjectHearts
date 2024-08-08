@@ -4,6 +4,8 @@ using UnityEngine;
 
 public static class Gval
 {
+	public static GameData userData;
+
 	private static GameState gameState = GameState.None;
 
 	public static void ChangeGameState(GameState newState)
@@ -29,7 +31,8 @@ public static class Gval
 	public enum StatType
 	{
 		None = 0,
-		HP,
+		CurHP,
+		MaxHP,
 		DMG,
 		RANGE,
 		ASPEED, // attack speed
@@ -44,6 +47,22 @@ public static class Gval
 		HERO,
 		ENEMY,
 		BASE,
+
+		Count
+	}
+
+	public enum EnemyType
+	{
+		None = 0,
+		
+
+		Count
+	}
+
+	public enum HeroType
+	{
+		None = 0,
+
 
 		Count
 	}

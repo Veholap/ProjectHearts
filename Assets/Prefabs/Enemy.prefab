@@ -99,3 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8858aa2292b00a34aa8f57dcf8c374d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterType: 2
+  target: {fileID: 0}
+  attackTimer: 0
+  isDefeated: 0
+  originPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
